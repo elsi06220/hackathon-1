@@ -1,14 +1,11 @@
-'use strict'
-
-const { test } = require('node:test')
-const assert = require('node:assert')
-
-const Fastify = require('fastify')
-const Support = require('../../plugins/support')
+import test from 'node:test';
+import assert from 'node:assert';
+import Fastify from 'fastify';
+import support from '../../plugins/support';
 
 test('support works standalone', async (t) => {
   const fastify = Fastify()
-  fastify.register(Support)
+  fastify.register(support)
 
   await fastify.ready()
   assert.equal(fastify.someSupport(), 'hugs')

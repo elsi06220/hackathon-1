@@ -1,12 +1,15 @@
-"use strict";
-
-const path = require("node:path");
-const AutoLoad = require("@fastify/autoload");
+import path from "node:path";
+import AutoLoad from "@fastify/autoload";
+import { fileURLToPath } from "node:url";
 
 // Pass --options via CLI arguments in command to enable these options.
-const options = {};
+export const options = {};
 
-module.exports = async function (fastify, opts) {
+// Get __dirname in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default async function (fastify, opts) {
   // Place here your custom code!
 
   // Do not touch the following lines
@@ -16,15 +19,13 @@ module.exports = async function (fastify, opts) {
   // through your application
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, "plugins"),
-    options: Object.assign({}, opts),
+    options: { ...opts },
   });
 
   // This loads all plugins defined in routes
   // define your routes in one of these
   fastify.register(AutoLoad, {
     dir: path.join(__dirname, "routes"),
-    options: Object.assign({}, opts),
+    options: { ...opts },
   });
-};
-
-module.exports.options = options;
+}
