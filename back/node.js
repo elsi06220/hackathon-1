@@ -42,7 +42,7 @@ app.route({ method: 'POST', url: '/chat', handler: async (request, reply) => {
     console.log(message);
     const apidata = await axios.get('https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/arbres-plantes-par-projet/records');
             const greatdata = apidata.data;
-            console.log("Les données JSON sont : ", JSON.stringify(greatdata, null, 2));
+            //console.log("Les données JSON sont : ", JSON.stringify(greatdata, null, 2));
 
     const response = await ollama.chat({
         model: 'jpacifico/chocolatine-3b',
@@ -51,9 +51,9 @@ app.route({ method: 'POST', url: '/chat', handler: async (request, reply) => {
             { role: 'tool', content: `Peux-tu me donner les coordonnées géographiques pour l'Alignement 2020-2021 - 05e arrondissement ? Voici les données : ${JSON.stringify(greatdata)}` }
         ],
     });
-        console.log(response.message.content)
+        // console.log("Les données JSON sont : ", JSON.stringify(response.message.content, null, 2));
         if (response.message.content) {
-            reply.send(response.message.content);
+            return reply.send({ response: response.message });
         } else {
             reply.send('No response');
         }

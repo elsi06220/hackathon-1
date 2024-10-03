@@ -1,10 +1,11 @@
 function addMessage(text, sender) {
+  console.log(text);
   const chatbox = document.getElementById('chatbox');
   const message = document.createElement('div');
   message.classList.add('message', sender);
   message.textContent = text;
   chatbox.appendChild(message);
-  chatbox.scrollTop = chatbox.scrollHeight; // Scroll vers le bas
+  chatbox.scrollTop = chatbox.scrollHeight;
 }
 
 function getChatbotResponse(userInput) {
@@ -20,8 +21,9 @@ function getChatbotResponse(userInput) {
   })
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      addMessage(data.message, 'bot');
+      console.log('Données reçues :', data); // Vérifie la réponse du serveur
+    console.log('Contenu du message :', data.response);
+      addMessage(data.response.content, 'bot');
     })
     .catch(error => console.error('Erreur lors de la récupération des données:', error));
 }
