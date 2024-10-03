@@ -23,9 +23,10 @@ app.route({ method: 'GET', url: '/', handler: async (request, reply) => {
 
     const response = await ollama.chat({
         model: 'jpacifico/chocolatine-3b',
-        messages: [{ role: 'user', content: 'dis moi ce que tu sais sur Replantations Jardins 2022-2023 - 12e ardt parle en frnaçais stp', stream: true },
-                { role: 'tool', content: `donne moi les coordonnées géographiques de geopoint stp  Alignement 2020-2021 - 05e ardt: ${JSON.stringify(greatdata)}`, stream: true },
-    ],
+        messages: [
+            { role: 'user', content: 'Combien il y a t-il de platane à Paris accède aux données que je t ai fournis stp  ?' },
+            { role: 'tool', content: `Peux-tu me donner les coordonnées géographiques pour l'Alignement 2020-2021 - 05e arrondissement ? Voici les données : ${JSON.stringify(greatdata)}` }
+        ],
     });
         console.log(response.message.content)
         if (response.message.content) {
