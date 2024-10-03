@@ -51,6 +51,11 @@
         </header>
         <main>
             <section class="section">
+                <video class="video-background" autoplay loop muted playsinline>
+                    <source src="./images/test.webm" type="video/mp4">
+                    <!-- Texte alternatif si la vidéo n'est pas supportée -->
+                    Votre navigateur ne supporte pas les vidéos en arrière-plan.
+                </video>
                 <div class="chatbot-container">
                     <div class="chatbox" id="chatbox">
                         <div class="message bot">Bonjour, je suis votre assistant IA pour tout savoir sur les arbres de Paris ! Posez-moi une question.</div>
@@ -58,7 +63,10 @@
                     </div>
                     <div class="input-container">
                         <input type="text" id="user-input" placeholder="Posez une question..." />
-                        <button id="send-btn">Envoyer</button>
+                        <div class="btn-container">
+                            <img class="bg-leaf" src="/front/images/leaf-btn.svg" alt="icon leaf">
+                            <button id="send-btn">Envoyer</button>
+                        </div>
                     </div>
                 </div>
                 <div class="map_container">
