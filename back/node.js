@@ -17,6 +17,29 @@ app.register(cors, {
 
 app.route({ method: 'GET', url: '/', handler: async (request, reply) => {
 
+    // const apidata = await axios.get('https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/arbres-plantes-par-projet/records');
+    //         const greatdata = apidata.data;
+    //         console.log("Les données JSON sont : ", JSON.stringify(greatdata, null, 2));
+
+    // const response = await ollama.chat({
+    //     model: 'jpacifico/chocolatine-3b',
+    //     messages: [
+    //         { role: 'user', content: 'Combien il y a t-il de platane à Paris accède aux données que je t ai fournis stp  ?' },
+    //         { role: 'tool', content: `Peux-tu me donner les coordonnées géographiques pour l'Alignement 2020-2021 - 05e arrondissement ? Voici les données : ${JSON.stringify(greatdata)}` }
+    //     ],
+    // });
+    //     console.log(response.message.content)
+    //     if (response.message.content) {
+    //         reply.send(response.message.content);
+    //     } else {
+    //         reply.send('No response');
+    //     }
+    }
+});
+
+app.route({ method: 'POST', url: '/chat', handler: async (request, reply) => {
+    const { message } = request.body;
+    console.log(message);
     const apidata = await axios.get('https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/arbres-plantes-par-projet/records');
             const greatdata = apidata.data;
             console.log("Les données JSON sont : ", JSON.stringify(greatdata, null, 2));
@@ -24,7 +47,7 @@ app.route({ method: 'GET', url: '/', handler: async (request, reply) => {
     const response = await ollama.chat({
         model: 'jpacifico/chocolatine-3b',
         messages: [
-            { role: 'user', content: 'Combien il y a t-il de platane à Paris accède aux données que je t ai fournis stp  ?' },
+            { role: 'user', content: message },
             { role: 'tool', content: `Peux-tu me donner les coordonnées géographiques pour l'Alignement 2020-2021 - 05e arrondissement ? Voici les données : ${JSON.stringify(greatdata)}` }
         ],
     });

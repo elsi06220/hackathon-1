@@ -43,7 +43,7 @@ const handleScroll = () => {
             [109, 67, 142],
             [214, 100, 93]
         ];
-        
+
         const interpolatedColor = gradientColors.reduce((acc, color, index) => {
             if (index === gradientColors.length - 1) return acc;
             const nextColor = gradientColors[index + 1];
@@ -53,7 +53,7 @@ const handleScroll = () => {
             const b = Math.round(color[2] + (nextColor[2] - color[2]) * segmentPercentage);
             return `rgb(${r}, ${g}, ${b})`;
         }, '');
-        
+
         nav.style.background = interpolatedColor;
         nav.style.boxShadow = '0 0 10px 0 rgba(0, 0, 0, 0.5)';
     }

@@ -1,8 +1,8 @@
 /* Conteneur principal de la carte */
 #map {
-    height: 100%;  
-    position: relative; 
-    z-index: 1; 
+    height: 100%;
+    position: relative;
+    z-index: 1;
     border: 1px solid #ccc;
     overflow: hidden;
     border-radius: 20px;
