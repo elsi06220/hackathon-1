@@ -4,7 +4,7 @@
 body{
     min-height: 400vh;
     margin-top: 100px;
-    background-color: black;
+    background-color: rgb(54, 116, 46);
     color: white;
 }
 
@@ -55,4 +55,51 @@ body{
 
 .clearfix {
     zoom: 1;
+}
+
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: stretch;
+    padding: 20px;
+}
+
+/* --- Media Queries pour rendre la section responsive --- */
+
+/* Pour les grands écrans (bureau) */
+@media (min-width: 1024px) {
+    .section {
+        flex-direction: row;
+    }
+    .chatbot-container, .map_container {
+        width: 45%; /* Partage de la largeur de l'écran */
+        height: 700px; /* Garde la même hauteur */
+    }
+}
+
+/* Pour les tablettes */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .section {
+        flex-direction: row;
+    }
+    .chatbot-container, .map_container {
+        width: 100%; /* Occupe 100% de la largeur */
+        height: 600px; /* Réduit un peu la hauteur */
+    }
+}
+
+/* Pour les petits écrans (mobiles) */
+@media (max-width: 767px) {
+    .section {
+        flex-direction: column;
+    }
+    .chatbot-container, .map_container {
+        width: 100%; /* Largeur 100% */
+        height: auto; /* Hauteur ajustée automatiquement */
+    }
+    .map_container {
+        margin-bottom: 1rem; /* Ajoute de l'espace en dessous de la carte */
+    }
 }

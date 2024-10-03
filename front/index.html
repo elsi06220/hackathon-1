@@ -13,6 +13,19 @@
         <link rel="stylesheet" href="css/html5-boilerplate.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/chatbot.css">
+        <link rel="stylesheet" href="css/map.css">
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""/>
+        <script
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+        ></script>
+
     </head>
 
     <body>
@@ -37,14 +50,29 @@
             </nav>
         </header>
         <main>
+            <section class="section">
+                <div class="chatbot-container">
+                    <div class="chatbox" id="chatbox">
+                        <div class="message bot">Bonjour, je suis votre assistant IA pour tout savoir sur les arbres de Paris ! Posez-moi une question.</div>
+                        <!-- Les messages seront ajoutés ici -->
+                    </div>
+                    <div class="input-container">
+                        <input type="text" id="user-input" placeholder="Posez une question..." />
+                        <button id="send-btn">Envoyer</button>
+                    </div>
+                </div>
+                <div class="map_container">
+                    <div id="map"></div>
+                </div>
+            </section>
 
-            <p>Hello Front Row Viewers!</p>
         </main>
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
+        <script src="js/map.js"></script>
         <script src="js/main.js"></script>
         <script src="js/header.js"></script>
     </body>
