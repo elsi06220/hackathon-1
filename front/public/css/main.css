@@ -2,7 +2,7 @@
    Your custom CSS styles
    ========================================================================== */
    body{
-    min-height: 400vh;
+    min-height: 100vh;
     margin-top: 100px;
     background-color: rgb(54, 116, 46);
     color: white;
@@ -55,6 +55,23 @@
 
 .clearfix {
     zoom: 1;
+}
+
+/* Texte presentation */
+
+.bg {
+    background: linear-gradient(180deg, rgba(140,199,80,1) 0%, #536a31 44%);
+}
+
+.descriptionDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.descriptionTxt {
+    text-align: center;
+    max-width: 800px;
 }
 
 

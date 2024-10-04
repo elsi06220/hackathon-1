@@ -40,7 +40,7 @@ async function fetchData() {
             'geofilter.bbox': `${southWest.lat},${southWest.lng},${northEast.lat},${northEast.lng}`
         });
 
-        //const response = await fetch(`https://opendata.paris.fr/api/records/1.0/search/?dataset=les-arbres&${params.toString()}`); // Effectue la requête vers l'API
+        // const response = await fetch(`https://opendata.paris.fr/api/records/1.0/search/?dataset=les-arbres&${params.toString()}`); // Effectue la requête vers l'API
 
         if (!response.ok) {
             throw new Error(`Erreur HTTP ! statut : ${response.status}`); // Gère les erreurs HTTP

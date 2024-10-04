@@ -7,7 +7,8 @@ import cors from 'cors';
 
 const app = express();
 const PORT = 5173;
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+//const __dirname = path.dirname(new URL(import.meta.url).pathname);
+const __dirname = "\\Users\\capta\\OneDrive\\Bureau\\dev\\Hackathon\\hackathon-1\\front";
 
 app.use(cors({
     origin: 'http://localhost:5173',  // L'URL de ton front-end (port 5286 dans ce cas)
@@ -17,7 +18,8 @@ app.use(cors({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    // res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile('index.html', { root:__dirname });
 });
 
 
